@@ -768,7 +768,6 @@ CREATE TABLE seat_assignment (
     assignment_source varchar(20) NOT NULL,
     created_at timestamptz NOT NULL DEFAULT now(),
     updated_at timestamptz NOT NULL DEFAULT now(),
-    CONSTRAINT uq_ticket_segment_id_flight UNIQUE (ticket_segment_id, flight_segment_id),
     CONSTRAINT uq_seat_assignment_ticket_segment UNIQUE (ticket_segment_id),
     CONSTRAINT uq_seat_assignment_flight_seat UNIQUE (flight_segment_id, aircraft_seat_id),
     CONSTRAINT ck_seat_assignment_source CHECK (assignment_source IN ('AUTO', 'MANUAL', 'CUSTOMER')),
